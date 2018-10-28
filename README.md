@@ -16,6 +16,10 @@ Try it Out Here - https://barrettotte.github.io/ProcJam-2018/WebGL/index.html
 * Each creature has one allele in their "DNA" for color and is passed to offspring based on fundamentals of genetics (crossover, mutation). 
 * Depending on how close the creature's color allele is to the ideal allele, it is given a fitness value which affects its chances of reproducing with another creature.
 
+## Screenshots
+![https://github.com/barrettotte/ProcJam-2018/blob/master/screenshots/screenshot-01.PNG](https://github.com/barrettotte/ProcJam-2018/blob/master/screenshots/screenshot-01.PNG)
+
+![https://github.com/barrettotte/ProcJam-2018/blob/master/screenshots/screenshot-02.PNG](https://github.com/barrettotte/ProcJam-2018/blob/master/screenshots/screenshot-02.PNG)
 
 ## Process
 * **Initialize** - Population N random DNA
