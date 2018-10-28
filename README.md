@@ -1,11 +1,11 @@
 # ProcJam-2018
 ProcJam 2018 Entry. Simulate basic population genetics on fake creatures' DNA. Concepts of mutation, crossover, fitness distribution covered.
 
-Try it Out Here - XXX
+Try it Out Here - https://barrettotte.github.io/ProcJam-2018/WebGL/index.html
 
 ## Links
 * Procedural Generation Jam 2018 - https://itch.io/jam/procjam
-* WebGL Build - XXX
+* WebGL Build - Try it Out Here - https://barrettotte.github.io/ProcJam-2018/WebGL/index.html
 * Procedural Generation Jam 2018 Entry Itch.io Page - XXX
 * This idea was prototyped in Python first, https://github.com/barrettotte/Population-Genetics-Sim
 
