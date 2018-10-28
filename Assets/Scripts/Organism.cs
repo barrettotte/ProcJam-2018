@@ -7,19 +7,10 @@ using UnityEngine.AI;
 
 public class Organism : MonoBehaviour{
 
-    [SerializeField]
     private string id;
-    [SerializeField] //TODO: DEBUG
-    private string organismName;
-    [SerializeField] //TODO: DEBUG
     private int fitness;
-    [SerializeField] //TODO: DEBUG
-    private int generation;
-    [SerializeField]
-    private int matingChance;
-    [SerializeField] //TODO: DEBUG
-    private string[] colorAllele;   
-    [SerializeField] //TODO: DEBUG
+    private long generation;
+    private int matingChance;   
     private float moveSpeed;
     private string[] parents = new string[2];
 
@@ -33,6 +24,7 @@ public class Organism : MonoBehaviour{
     private string destination;
     private Dictionary<string, string[]> dna;
     private bool canAsexReproduce;
+    private bool hasTopMarker;
 
 
 #region Properties
@@ -44,7 +36,7 @@ public class Organism : MonoBehaviour{
         get{ return this.id;  }
         set{ this.id = value; }
     }
-    public int Generation {
+    public long Generation {
         get{ return this.generation;  }
         set{ this.generation = value; }
     }
@@ -84,6 +76,10 @@ public class Organism : MonoBehaviour{
         get{ return this.canAsexReproduce;  }
         set{ this.canAsexReproduce = value; }
     }
+    public bool HasTopMarker {
+        get{ return this.hasTopMarker;  }
+        set{ this.hasTopMarker = value; }
+    }
 #endregion
 
 
@@ -97,10 +93,9 @@ public class Organism : MonoBehaviour{
         isAlive = true;
         canWander = false;
         canAsexReproduce = false;
+        hasTopMarker = false;
         this.transform.eulerAngles = new Vector3(0.0f, UnityEngine.Random.Range(0f, 360f), 0f);
         StartCoroutine(StartWanderDelay());
-        organismName = this.name;
-        colorAllele = DNA["color"]; //TODO: DEBUG 
     }
 
     private void Wander(){
@@ -134,5 +129,16 @@ public class Organism : MonoBehaviour{
         if(canWander && other.tag == "Waypoint" && other.name == destination){
             SetWaypoint();
         }
+    }
+
+    public void SetNewOrganism(Organism other){
+        this.generation = other.Generation;
+		this.id = other.Id;
+		this.name = other.name;
+		this.DNA = other.DNA;
+		Renderer rend = GetComponent<Renderer>();
+        rend.material.color = PopGen.ColorAlleleToColor(dna["color"]);
+		fitness = other.fitness;
+		parents = other.parents; 
     }
 }
